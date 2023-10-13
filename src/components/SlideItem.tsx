@@ -58,6 +58,8 @@ const styles = StyleSheet.create({
   image: {
     flex: 0.6,
     width: '100%',
+
+    resizeMode: 'cover',
   },
   content: {
     flex: 0.4,
