@@ -48,11 +48,13 @@ const Slider = (props: SliderProps) => {
       <FlatList
         data={props.slides}
         renderItem={({item}) => <SlideItem item={item} />}
-        horizontal
-        pagingEnabled
+        horizontal={true}
+        pagingEnabled={true}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
-        onScroll={handleOnScroll}
+        onScroll={(event: NativeSyntheticEvent<NativeScrollEvent>) => {
+          handleOnScroll(event);
+        }}
         onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={viewabilityConfig}
       />
