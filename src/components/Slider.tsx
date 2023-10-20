@@ -3,6 +3,8 @@ import {
   FlatList,
   NativeSyntheticEvent,
   NativeScrollEvent,
+  ViewabilityConfigCallbackPair,
+  ViewToken
 } from 'react-native';
 
 import React, {useRef, useState} from 'react';
