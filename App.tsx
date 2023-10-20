@@ -1,18 +1,14 @@
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import Slider from './src/components/Slider';
-
+import data from './src/data';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Slider />
-    </SafeAreaView>
-
-
+    <View>
+      <Slider slides={data} />
+    </View>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({});
