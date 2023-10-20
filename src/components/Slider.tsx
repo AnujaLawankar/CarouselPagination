@@ -1,14 +1,23 @@
-import {Animated, FlatList, StyleSheet, Text, View} from 'react-native';
+import {
+  Animated,
+  FlatList,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+} from 'react-native';
+
 import React, {useRef, useState} from 'react';
-import Slides from '../data';
 import SlideItem from './SlideItem';
 import Pagination from './Pagination';
 
-const Slider = () => {
+interface SliderProps {
+  slides: any;
+}
+
+const Slider = (props: SliderProps) => {
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
 
-  const handleOnScroll = event => {
+  const handleOnScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     Animated.event(
       [
         {
@@ -35,23 +44,23 @@ const Slider = () => {
   }).current;
 
   return (
-    <View>
+    <>
       <FlatList
-        data={Slides}
+        data={props.slides}
         renderItem={({item}) => <SlideItem item={item} />}
-        horizontal
-        pagingEnabled
+        horizontal={true}
+        pagingEnabled={true}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
-        onScroll={handleOnScroll}
+        onScroll={(event: NativeSyntheticEvent<NativeScrollEvent>) => {
+          handleOnScroll(event);
+        }}
         onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={viewabilityConfig}
       />
-      <Pagination data={Slides} scrollX={scrollX} index={index} />
-    </View>
+      <Pagination data={props.slides} scrollX={scrollX} index={index} />
+    </>
   );
 };
 
 export default Slider;
-
-const styles = StyleSheet.create({});
