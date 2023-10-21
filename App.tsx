@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 import {View} from 'react-native';
 import React from 'react';
 import Slider from './src/components/Slider';
