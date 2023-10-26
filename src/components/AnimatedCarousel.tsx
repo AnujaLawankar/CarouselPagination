@@ -173,9 +173,9 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
     height: PAGE_HEIGHT-200,
   };
 
-   const scrollToItem = (index:number) => {
+   const scrollToItem = (index) => {
       if (carouselRef.current) {
-        carouselRef.current?.scrollToItem({ animated: true, index: index }); // Use the snapToItem method of carouselRef
+        carouselRef.current.snapToItem(index); // Use the snapToItem method of carouselRef
       }
     };
 
