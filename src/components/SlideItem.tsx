@@ -51,14 +51,15 @@ export default SlideItem;
 
 const styles = StyleSheet.create({
   container: {
-    width,
-    height,
-    alignItems: 'center',
-  },
+   width: '100%',
+      height: '100%', // Use the desired height for your container
+      alignItems: 'center',
+      paddingBottom: 20, // Adjust the value as needed
+      },
+
   image: {
     flex: 0.6,
     width: '100%',
-
     resizeMode: 'cover',
   },
   content: {
@@ -66,17 +67,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: 'white',
+      alignItems: 'center',
   },
   description: {
-    fontSize: 18,
+    fontSize: 15,
     marginVertical: 12,
-    color: '#333',
+    color: 'white',
+      alignItems: 'center',
   },
   price: {
-    fontSize: 32,
+    fontSize: 20,
     fontWeight: 'bold',
+     color: 'white',
+       alignItems: 'center',
   },
 });

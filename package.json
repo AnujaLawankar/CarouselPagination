@@ -10,14 +10,18 @@
     "test": "jest"
   },
   "dependencies": {
+    "@ionic/react": "^7.5.1",
+    "i": "^0.3.7",
+    "install": "^0.13.0",
+    "ionicons": "^7.2.1",
+    "mobile-number-validator": "^2.0.0",
     "react": "18.2.0",
-    "react-native": "0.72.5",
-
+    "react-native": "^0.72.6",
+    "react-native-animated-pagination-dots": "^0.1.73",
     "react-native-gesture-handler": "^2.13.3",
     "react-native-reanimated": "^3.5.4",
-    "react-native-reanimated-carousel": "^3.5.1"
-
-
+    "react-native-reanimated-carousel": "^3.5.1",
+    "react-native-vector-icons": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

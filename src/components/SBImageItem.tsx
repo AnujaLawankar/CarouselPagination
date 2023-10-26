@@ -30,7 +30,7 @@ const SBImageItem: React.FC<Props> = ({style, index: _index, showIndex = true })
       <Image key={index} style={styles.image} source={source} />
       <Text
         style={{
-          position: 'absolute',
+        //  position: 'absolute',
           color: 'white',
           fontSize: 40,
           backgroundColor: '#333333',
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   image: {
-    position: 'absolute',
+  //  position: 'absolute',
     top: 0,
     left: 0,
     bottom: 0,

@@ -1,9 +1,9 @@
-import {StyleSheet, Animated, View, Dimensions} from 'react-native';
+import {StyleSheet, Animated, View, Dimensions,TouchableOpacity} from 'react-native';
 import React from 'react';
 
 const {width} = Dimensions.get('screen');
 
-const Pagination = ({data, scrollX, index}) => {
+const Pagination = ({data, scrollX, index,scrollToItem }) => {
   return (
     <View style={styles.container}>
       {data.map((_, idx) => {
@@ -32,8 +32,13 @@ const Pagination = ({data, scrollX, index}) => {
             key={idx.toString()}
             style={[
               styles.dot,
-              {width: dotWidth, backgroundColor},
-              // idx === index && styles.dotActive,
+              {
+              width: dotWidth,
+              //backgroundColor,
+              height: dotWidth, // Make the dots round
+              opacity, // Apply opacity animation
+              },
+               idx === index && styles.dotActive,
             ]}
           />
         );
@@ -41,6 +46,21 @@ const Pagination = ({data, scrollX, index}) => {
     </View>
   );
 };
+//  <TouchableOpacity
+//             key={idx.toString()}
+//             onPress={() => scrollToItem(idx)} // Call scrollToItem with the index
+//             style={[
+//               styles.dot,
+//               { width: dotWidth, backgroundColor, opacity },
+//               idx === index && styles.dotActive,
+//             ]}
+//           />
+//         );
+//       })}
+//     </View>
+//   );
+// };
+
 
 export default Pagination;
 
@@ -58,10 +78,10 @@ const styles = StyleSheet.create({
     height: 12,
     borderRadius: 6,
     marginHorizontal: 3,
-    backgroundColor: '#ccc',
+    backgroundColor: 'white',
   },
   dotActive: {
-    backgroundColor: '#000',
+    backgroundColor: 'white',
   },
 });
 
