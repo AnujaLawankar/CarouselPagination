@@ -1,149 +1,4 @@
-// import React, { useRef,useState } from 'react';
-// import {View,Dimensions, TouchableOpacity, Text, Image} from 'react-native';
-//
-// import SlideItem from './SlideItem';
-// //import Pagination from './Pagination';
-// import Carousel from 'react-native-reanimated-carousel';
-// import type {ICarouselInstance} from 'react-native-reanimated-carousel';
-// import SBItem from './SBItem';
-// import Animated from 'react-native-reanimated';
-// import Ionicons from 'react-native-vector-icons/Ionicons';
-//
-// import { IonIcon } from '@ionic/react';
-// // import { playBack} from 'ionicons/icons';
-// // import { play} from 'ionicons/icons';
-// // import { playForward} from 'ionicons/icons';
-//
-// interface AnimatedCarouseProps {
-//   slides: any;
-// }
-//
-// const AnimatedCarousel = (props: AnimatedCarouseProps) => {
-//   const [currentIndex, setCurrentIndex] = useState(0); // State variable for the current index
-//
-//
-//   const carouselRef = React.useRef<ICarouselInstance>(null);
-//   const [isAutoPlay, setIsAutoPlay] = React.useState(false);
-//   const [isFast, setIsFast] = React.useState(false);
-//   const [isPagingEnabled, setIsPagingEnabled] = React.useState(true);
-//  // Create the scrollX value and initialize it
-//  //const scrollX = React.useRef(new Animated.Value(0)).current;
-//
-//   const colors = [
-//     '#26292E',
-//     '#899F9C',
-//     '#B3C680',
-//     '#5C6265',
-//     '#F5D399',
-//     '#F1F1F1',
-//   ];
-//
-//   const window = Dimensions.get('window');
-//   const PAGE_WIDTH = window.width;
-//   const PAGE_HEIGHT = window.height;
-//   const baseOptions = {
-//     vertical: false,
-//     width: PAGE_WIDTH,
-//     height: PAGE_HEIGHT-200,
-//   };
-//
-//   const scrollToItem = (index) => {
-//     if (carouselRef.current) {
-//       carouselRef.current.snapToItem(index); // Use the snapToItem method of carouselRef
-//     }
-//   };
-//
-//   return (
-//
-//     <>
-//   <View style={styles.container}>
-//       <Carousel
-//         {...baseOptions}
-//         loop={true}
-//         ref={carouselRef}
-//         style={{width:'100%'}}
-//         autoPlay={isAutoPlay}
-//         autoPlayInterval={isFast ? 100 : 2000}
-//         data={props.slides}
-//         pagingEnabled={isPagingEnabled}
-//        onSnapToItem={index => {
-//            setCurrentIndex(index);
-//            console.log('current index:', index);
-//          }}
-//         renderItem={({item}) => <SlideItem item={item} />}
-//       //  scrollX={scrollX} // Pass scrollX to Carousel
-//       />
-//
-//  <View style={styles.dotView}>
-//         {carouselItem.map(({}, index: number) => (
-//           <TouchableOpacity
-//             key={index.toString()}
-//             style={[
-//               styles.circle,
-//               { backgroundColor: index == currentIndex ? 'white' : 'grey' },
-//             ]}
-//             onPress={() => scrollToItem(index)}
-//           />
-//         ))}
-//       </View>
-//
-//   <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-//       <TouchableOpacity onPress={()=> {
-//         if (carouselRef.current)
-//           carouselRef.current.prev();
-//             console.log('Play back');
-//       }}>
-// {/*         <Text>PREVIOUS</Text> */}
-//     <Ionicons name="play-back" size={20} color="white" />
-//       </TouchableOpacity>
-//       <TouchableOpacity onPress={()=> {
-//         setIsAutoPlay(!isAutoPlay);
-//            console.log('Play');
-//
-//       }}>
-// {/*         <Text>{isAutoPlay ? 'Pause' : 'Play'}</Text> */}
-//   <Ionicons name="play" size={20} color="white" />
-//       </TouchableOpacity>
-//       <TouchableOpacity onPress={()=> {
-//         if (carouselRef.current)
-//           carouselRef.current.next();
-//             console.log('Play forward');
-//       }}>
-// {/*         <Text>NEXT</Text> */}
-//     <Ionicons name="play-forward" size={20} color="white" />
-//       </TouchableOpacity>
-//
-//
-//
-// </View>
-// </View>
-//
-//     </>
-//   );
-// };
-//
-// export default AnimatedCarousel;
-//
-// const styles = StyleSheet.create({
-//
-//  container: {
-//     flex: 1,
-//     backgroundColor: 'black',
-//   },
-//
-//   dotView: {
-//       flexDirection: 'row',
-//       justifyContent: 'center',
-//       marginVertical: 20,
-//     },
-//     circle: {
-//       width: 10,
-//       height: 10,
-//       backgroundColor: 'grey',
-//       borderRadius: 50,
-//       marginHorizontal: 5,
-//     },
-// });
+
 import React, { useRef, useState } from 'react';
 import { View, Dimensions, TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
@@ -151,6 +6,7 @@ import SlideItem from './SlideItem';
 import Carousel from 'react-native-reanimated-carousel';
 import type { ICarouselInstance } from 'react-native-reanimated-carousel';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Pagination from './Pagination';
 
 interface AnimatedCarouseProps {
   slides: any;
@@ -179,7 +35,7 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
       }
     };
 
-  const carouselItem = props.slides;
+
 
   return (
     <View style={styles.container}>
@@ -214,6 +70,8 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
                 }}
         renderItem={({ item }) => <SlideItem item={item} />}
       />
+{/* Render the Pagination component and pass required props */}
+      <Pagination slides={props.slides} currentIndex={currentIndex} carouselRef={carouselRef} />
 
  <View style={styles.imageIconContainer}>
         <TouchableOpacity
@@ -224,18 +82,7 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.dotView}>
-        {carouselItem.map((_, index) => (
-          <TouchableOpacity
-            key={index.toString()}
-            style={[
-              styles.circle,
-              { backgroundColor: index === currentIndex ? 'white' : 'grey' },
-            ]}
-            onPress={() => scrollToItem(index)}
-          />
-        ))}
-      </View>
+
 
       <View style={styles.controls}>
         <TouchableOpacity
@@ -270,18 +117,7 @@ const styles = StyleSheet.create({
 
     backgroundColor: 'black',
   },
-  dotView: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginVertical: 20,
-  },
-  circle: {
-    width: 10,
-    height: 10,
-    backgroundColor: 'grey',
-    borderRadius: 50,
-    marginHorizontal: 5,
-  },
+
   controls: {
     flexDirection: 'row',
     justifyContent: 'center',
