@@ -1,8 +1,8 @@
-import React, {useRef, useState} from 'react';
-import {View, Dimensions, TouchableOpacity, StyleSheet} from 'react-native';
+import React, { useRef, useState } from 'react';
+import { View, Dimensions, TouchableOpacity, StyleSheet } from 'react-native';
 import SlideItem from './SlideItem';
 import Carousel from 'react-native-reanimated-carousel';
-import type {ICarouselInstance} from 'react-native-reanimated-carousel';
+import type { ICarouselInstance } from 'react-native-reanimated-carousel';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Pagination from './Pagination';
 
@@ -24,34 +24,18 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
   const baseOptions = {
     vertical: false,
     width: PAGE_WIDTH,
-    height: PAGE_HEIGHT - 200
+    height: PAGE_HEIGHT - 100,
   };
 
 
 
   return (
     <View style={styles.container}>
-      <View style={styles.iconRow}>
-        <TouchableOpacity
-          style={styles.iconButton}
-          onPress={() => console.log('Hit Like')}
-        >
-          <Ionicons name="heart-outline" size={30} color="white" />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.iconButton}
-          onPress={() => console.log('Hit Share')}
-        >
-          <Ionicons name="share-outline" size={30} color="white" />
-        </TouchableOpacity>
-      </View>
-
       <Carousel
         {...baseOptions}
         loop={true}
         ref={carouselRef}
-        style={{width: '100%'}}
+        style={{ width: '100%' }}
         autoPlay={isAutoPlay}
         autoPlayInterval={isFast ? 100 : 2000}
         data={props.slides}
@@ -60,14 +44,31 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
           setCurrentIndex(index);
           console.log('current index:', index);
         }}
-        renderItem={({item}) => <SlideItem item={item} />}
+        renderItem={({ item }) => <SlideItem item={item} />}
       />
+
       {/* Render the Pagination component and pass required props */}
       <Pagination
         slides={props.slides}
         currentIndex={currentIndex}
         carouselRef={carouselRef}
       />
+
+      <View style={styles.iconRow}>
+        <TouchableOpacity
+
+          onPress={() => console.log('Hit Like')}
+        >
+          <Ionicons name="heart-outline" size={30} color="white" />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+
+          onPress={() => console.log('Hit Share')}
+        >
+          <Ionicons name="share-outline" size={30} color="white" />
+        </TouchableOpacity>
+      </View>
 
       <View style={styles.imageIconContainer}>
         <TouchableOpacity
@@ -80,63 +81,113 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
 
 
       <View style={styles.controls}>
-        <TouchableOpacity
-          onPress={() => {
-            if (carouselRef.current) carouselRef.current.prev();
-          }}
-          style={styles.controlButton}
-        >
-          <Ionicons name="play-back" size={20} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => setIsAutoPlay(!isAutoPlay)}
-          style={styles.controlButton}
-        >
-          <Ionicons name={isAutoPlay ? 'pause' : 'play'} size={20} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            if (carouselRef.current) carouselRef.current.next();
-          }}
-          style={styles.controlButton}
-        >
-          <Ionicons name="play-forward" size={20} color="white" />
-        </TouchableOpacity>
+        <View style={styles.backplay}>
+          <TouchableOpacity
+            onPress={() => {
+              if (carouselRef.current) carouselRef.current.prev();
+            }}
+            style={styles.controlButton}
+          >
+            <Ionicons name="play-back" size={20} color="white" />
+          </TouchableOpacity>
+
+        </View>
+
+
+        <View style={styles.play}>
+          <TouchableOpacity
+            onPress={() => setIsAutoPlay(!isAutoPlay)}
+            style={styles.controlButton}
+          >
+            <Ionicons name={isAutoPlay ? 'pause' : 'play'} size={20} color="white" />
+          </TouchableOpacity>
+        </View>
+
+
+        <View style={styles.Nextplay}>
+          <TouchableOpacity
+            onPress={() => {
+              if (carouselRef.current) carouselRef.current.next();
+            }}
+            style={styles.controlButton}
+          >
+            <Ionicons name="play-forward" size={20} color="white" />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
+
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
 
-    backgroundColor: 'black'
   },
 
   controls: {
+    // flexDirection: 'row',
+    // justifyContent: 'center'
+    flex: 0.4,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'space-between',
+    paddingTop: 150,
+    margin: 100,
+    alignItems: 'center',
+
+
   },
   controlButton: {
     marginHorizontal: 10
   },
   iconRow: {
+    // backgroundColor: 'black',
+    // width: 40,
+    // height: 40,
+    position: 'absolute',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
-    marginBottom: 10 // Adjust the margin to create space for the image icon
+    paddingLeft: 320,
+    justifyContent: 'space-between',
+    // marginBottom: 10 // Adjust the margin to create space for the image icon
   },
-  iconButton: {
-    backgroundColor: 'transparent',
-    marginHorizontal: 10
-  },
+
   imageIconContainer: {
     position: 'absolute',
-    bottom: 10, // Adjust the bottom value for the desired position
-    right: 10 // Adjust the right value for the desired position
+    paddingTop: 300,
+    paddingLeft: 350,
+    paddingBottom: 20,
   },
   imageIconButton: {
     backgroundColor: 'transparent'
-  }
+  },
+  backplay: {
+
+    backgroundColor: '#87cefa',
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  play: {
+    backgroundColor: '#87cefa',
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  Nextplay: {
+
+    backgroundColor: '#87cefa',
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default AnimatedCarousel;

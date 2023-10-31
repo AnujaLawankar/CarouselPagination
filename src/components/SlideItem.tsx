@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 import React from 'react';
 
-const {width, height} = Dimensions.get('screen');
+const { width, height } = Dimensions.get('screen');
 
-const SlideItem = ({item}) => {
+const SlideItem = ({ item }: any) => {
   const translateYImage = new Animated.Value(40);
 
   Animated.timing(translateYImage, {
@@ -51,11 +51,12 @@ export default SlideItem;
 
 const styles = StyleSheet.create({
   container: {
-   width: '100%',
-      height: '100%', // Use the desired height for your container
-      alignItems: 'center',
-      paddingBottom: 20, // Adjust the value as needed
-      },
+    width: '100%',
+    height: '100%', // Use the desired height for your container
+    alignItems: 'center',
+    paddingBottom: 20, // Adjust the value as needed
+    backgroundColor: 'black',
+  },
 
   image: {
     flex: 0.6,
@@ -70,18 +71,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: 'white',
-      alignItems: 'center',
+    alignItems: 'center',
   },
   description: {
     fontSize: 15,
     marginVertical: 12,
     color: 'white',
-      alignItems: 'center',
+    alignItems: 'center',
   },
   price: {
     fontSize: 20,
     fontWeight: 'bold',
-     color: 'white',
-       alignItems: 'center',
+    color: 'white',
+    alignItems: 'center',
   },
 });

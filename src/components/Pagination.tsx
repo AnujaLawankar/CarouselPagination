@@ -1,8 +1,8 @@
-import {StyleSheet, View, Dimensions,TouchableOpacity} from 'react-native';
+import { StyleSheet, View, Dimensions, TouchableOpacity } from 'react-native';
 import React from 'react';
-import type {ICarouselInstance} from 'react-native-reanimated-carousel';
+import type { ICarouselInstance } from 'react-native-reanimated-carousel';
 
-const {width} = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
 
 const Pagination = (props: {
   slides: any;
@@ -23,19 +23,20 @@ const Pagination = (props: {
   };
 
   return (
-    <View style={styles.dotView}>
-      {props.slides.map((_, index:number) => (
-        <TouchableOpacity
-          key={index.toString()}
-          style={[
-            styles.circle,
-            {backgroundColor: index === props.currentIndex ? 'white' : 'grey'},
-          ]}
-          onPress={() => scrollToItem(index)}
-        />
-      ))}
+    <View style={styles.container}>
+      <View style={styles.dotView}>
+        {props.slides.map((_: any, index: number) => (
+          <TouchableOpacity
+            key={index.toString()}
+            style={[
+              styles.circle,
+              { backgroundColor: index === props.currentIndex ? 'white' : 'grey' },
+            ]}
+            onPress={() => scrollToItem(index)}
+          />
+        ))}
+      </View>
     </View>
-
 
   );
 };
@@ -44,6 +45,11 @@ const Pagination = (props: {
 export default Pagination;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 0.2,
+    paddingTop: 300,
+
+  },
 
   dotView: {
     flexDirection: 'row',
