@@ -9,17 +9,17 @@ import {
 } from 'react-native';
 import React from 'react';
 
-const { width, height } = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
 
-const SlideItem = ({ item }: any) => {
+const SlideItem = ({item}: any) => {
   const translateYImage = new Animated.Value(40);
-
-  Animated.timing(translateYImage, {
-    toValue: 0,
-    duration: 1000,
-    useNativeDriver: true,
-    easing: Easing.bounce,
-  }).start();
+  //
+  // Animated.timing(translateYImage, {
+  //   toValue: 0,
+  //   duration: 1000,
+  //   useNativeDriver: true,
+  //   easing: Easing.bounce,
+  // }).start();
 
   return (
     <View style={styles.container}>
