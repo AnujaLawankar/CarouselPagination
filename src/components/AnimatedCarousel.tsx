@@ -1,11 +1,14 @@
 import React, {useRef, useState} from 'react';
 import {View, Dimensions, TouchableOpacity, StyleSheet} from 'react-native';
-import SlideItem from './SlideItem';
+//import SlideItem from './SlideItem';
 import Carousel from 'react-native-reanimated-carousel';
 import type {ICarouselInstance} from 'react-native-reanimated-carousel';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Pagination from './Pagination';
 import {moderateScale, scale} from 'react-native-size-matters';
+
+import Tiles from './Tiles';
+
 interface AnimatedCarouseProps {
   slides: any;
 }
@@ -24,7 +27,7 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
   const baseOptions = {
     vertical: false,
     width: PAGE_WIDTH,
-    height: PAGE_HEIGHT - 100,
+    height: PAGE_HEIGHT,
   };
 
   return (
@@ -42,7 +45,7 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
           setCurrentIndex(index);
           console.log('current index:', index);
         }}
-        renderItem={({item}) => <SlideItem item={item} />}
+        renderItem={({item}) => <Tiles item={item} />}
       />
 
       {/* Render the Pagination component and pass required props */}
@@ -62,13 +65,13 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.imageIconContainer}>
+      {/* <View style={styles.imageIconContainer}> */}
         <TouchableOpacity
           style={styles.imageIconButton}
           onPress={() => console.log('Photos Hits')}>
           <Ionicons name="images-outline" size={30} color="white" />
         </TouchableOpacity>
-      </View>
+      {/* </View> */}
 
       <View style={styles.controls}>
         <View style={styles.backplay}>
@@ -112,6 +115,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderColor: 'red',
     borderWidth: 5,
+    
   },
 
   controls: {
@@ -119,7 +123,7 @@ const styles = StyleSheet.create({
     borderWidth: 5,
     // flexDirection: 'row',
     // justifyContent: 'center'
-    flex: 0.4,
+   // flex: 0.4,
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: 150,
@@ -138,26 +142,28 @@ const styles = StyleSheet.create({
     // backgroundColor: 'black',
     // width: 40,
     // height: 40,
-    position: 'absolute',
+  //  position: 'absolute',
     flexDirection: 'row',
-    marginTop: moderateScale(40),
+  marginTop: moderateScale(40),
     marginLeft: scale(250),
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     // marginBottom: 10 // Adjust the margin to create space for the image icon
   },
 
-  imageIconContainer: {
-    borderColor: 'green',
-    borderWidth: 5,
-    position: 'absolute',
-    paddingTop: 300,
-    paddingLeft: 350,
-    paddingBottom: 20,
-  },
+  // imageIconContainer: {
+  //   width:'10%',
+  //   height:'10%',
+  //   borderColor: 'green',
+  //   borderWidth: 5,
+  //   position: 'absolute',
+  //   paddingTop: 300,
+  //   paddingLeft: 350,
+  //   paddingBottom: 20,
+  // },
   imageIconButton: {
     borderColor: 'blue',
     borderWidth: 5,
-    backgroundColor: 'transparent',
+    
   },
   backplay: {
     borderColor: 'yellow',

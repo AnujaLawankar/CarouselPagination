@@ -16,6 +16,7 @@
     "@babel/plugin-transform-shorthand-properties": "^7.22.5",
     "@babel/plugin-transform-template-literals": "^7.22.5",
     "@ionic/react": "^7.5.1",
+    "@rneui/themed": "^4.0.0-rc.8",
     "i": "^0.3.7",
     "install": "^0.13.0",
     "ionicons": "^7.2.1",

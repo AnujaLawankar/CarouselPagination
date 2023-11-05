@@ -22,10 +22,11 @@ const SlideItem = ({item}: any) => {
   // }).start();
 
   return (
-    <View style={styles.container}>
+    // <View style={styles.container}>
+  <>
       <Animated.Image
         source={item.img}
-        resizeMode="contain"
+     //   resizeMode="cover"
         style={[
           styles.image,
           {
@@ -43,28 +44,35 @@ const SlideItem = ({item}: any) => {
         <Text style={styles.description}>{item.description}</Text>
         <Text style={styles.price}>{item.price}</Text>
       </View>
-    </View>
+    {/* </View>  */}
+    </>
+    
   );
 };
 
 export default SlideItem;
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%', // Use the desired height for your container
-    alignItems: 'center',
-    paddingBottom: 20, // Adjust the value as needed
-    backgroundColor: 'black',
-  },
+//   container: {
+//  //   width: '100%',
+//   //  height: '100%', // Use the desired height for your container
+//    alignItems: 'center',
+//     //paddingBottom: 20, // Adjust the value as needed
+//  //   backgroundColor: 'black',
+// flex:1,
+
+//   },
 
   image: {
-    flex: 0.6,
+  // flex: 0.6,
     width: '100%',
-    resizeMode: 'cover',
+    height: '100%',
+  resizeMode:'stretch',
+
   },
   content: {
-    flex: 0.4,
+ //   flex: 0.4,
+
     alignItems: 'center',
   },
   title: {

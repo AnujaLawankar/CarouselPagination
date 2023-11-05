@@ -1,7 +1,7 @@
 import { StyleSheet, View, Dimensions, TouchableOpacity } from 'react-native';
 import React from 'react';
 import type { ICarouselInstance } from 'react-native-reanimated-carousel';
-
+import {moderateScale, scale} from 'react-native-size-matters';
 const { width } = Dimensions.get('screen');
 
 const Pagination = (props: {
@@ -23,7 +23,8 @@ const Pagination = (props: {
   };
 
   return (
-    <View style={styles.container}>
+    // <View style={styles.container}>
+    <>
       <View style={styles.dotView}>
         {props.slides.map((_: any, index: number) => (
           <TouchableOpacity
@@ -36,8 +37,8 @@ const Pagination = (props: {
           />
         ))}
       </View>
-    </View>
-
+    {/* // </View> */}
+</>
   );
 };
 
@@ -45,16 +46,20 @@ const Pagination = (props: {
 export default Pagination;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 0.2,
-    paddingTop: 300,
+  // container: {
+  //   flex: 0.2,
+  //   paddingTop: 300,
 
-  },
+  // },
 
   dotView: {
+    borderColor: 'green',
+    borderWidth: 2,
     flexDirection: 'row',
-    justifyContent: 'center',
-    marginVertical: 20,
+    justifyContent: 'flex-start',
+   // marginVertical: 20,
+   //alignItems:'center'
+  
   },
   circle: {
     width: 10,
