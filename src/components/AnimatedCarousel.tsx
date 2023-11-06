@@ -1,13 +1,13 @@
 import React, {useRef, useState} from 'react';
 import {View, Dimensions, TouchableOpacity, StyleSheet} from 'react-native';
-//import SlideItem from './SlideItem';
+import SlideItem from './SlideItem';
 import Carousel from 'react-native-reanimated-carousel';
 import type {ICarouselInstance} from 'react-native-reanimated-carousel';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Pagination from './Pagination';
 import {moderateScale, scale} from 'react-native-size-matters';
 
-import Tiles from './Tiles';
+//import Tiles from './Tiles';
 
 interface AnimatedCarouseProps {
   slides: any;
@@ -45,7 +45,7 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
           setCurrentIndex(index);
           console.log('current index:', index);
         }}
-        renderItem={({item}) => <Tiles item={item} />}
+        renderItem={({item}) => <SlideItem item={item} />}
       />
 
       {/* Render the Pagination component and pass required props */}
