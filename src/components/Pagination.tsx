@@ -23,21 +23,21 @@ const Pagination = (props: {
   };
 
   return (
-    // <View style={styles.container}>
+  
     <>
       <View style={styles.dotView}>
         {props.slides.map((_: any, index: number) => (
           <TouchableOpacity
             key={index.toString()}
             style={[
-              styles.circle,
+            styles.circle,
               { backgroundColor: index === props.currentIndex ? 'white' : 'grey' },
             ]}
             onPress={() => scrollToItem(index)}
           />
         ))}
       </View>
-    {/* // </View> */}
+
 </>
   );
 };
@@ -45,30 +45,27 @@ const Pagination = (props: {
 
 export default Pagination;
 
+
+
 const styles = StyleSheet.create({
-  // container: {
-  //   flex: 0.2,
-  //   paddingTop: 300,
 
-  // },
-
-  dotView: {
+  dotView:{
     borderColor: 'green',
     borderWidth: 2,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-   // marginVertical: 20,
-   //alignItems:'center'
+    justifyContent: 'center',  // Center horizontally
+    alignItems: 'center',
+    bottom: moderateScale(100),
+    right: moderateScale(10), 
   
   },
   circle: {
-    width: 10,
-    height: 10,
-    backgroundColor: 'grey',
-    borderRadius: 50,
-    marginHorizontal: 5,
-  },
+        width: 15,
+        height: 15,
+        backgroundColor: 'grey',
+        borderRadius: 50,
+        marginHorizontal: 5,
+        
+      },
 
 });
-
-

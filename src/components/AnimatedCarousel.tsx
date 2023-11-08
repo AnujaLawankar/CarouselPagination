@@ -36,7 +36,7 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
         {...baseOptions}
         loop={true}
         ref={carouselRef}
-        style={{width: '100%'}}
+        style={{width: '100%',height: '100%'}}
         autoPlay={isAutoPlay}
         autoPlayInterval={isFast ? 100 : 2000}
         data={props.slides}
@@ -48,46 +48,47 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
         renderItem={({item}) => <SlideItem item={item} />}
       />
 
-      {/* Render the Pagination component and pass required props */}
+      
       <Pagination
         slides={props.slides}
         currentIndex={currentIndex}
         carouselRef={carouselRef}
       />
 
-      <View style={styles.iconRow}>
+      <View style={styles.iconheart}>
         <TouchableOpacity onPress={() => console.log('Hit Like')}>
           <Ionicons name="heart-outline" size={30} color="white" />
         </TouchableOpacity>
-
+</View>
+<View style={styles.iconshare}>
         <TouchableOpacity onPress={() => console.log('Hit Share')}>
           <Ionicons name="share-outline" size={30} color="white" />
         </TouchableOpacity>
       </View>
 
-      {/* <View style={styles.imageIconContainer}> */}
+      <View style={styles.iconimage}>
         <TouchableOpacity
-          style={styles.imageIconButton}
           onPress={() => console.log('Photos Hits')}>
           <Ionicons name="images-outline" size={30} color="white" />
         </TouchableOpacity>
-      {/* </View> */}
+      </View>
 
       <View style={styles.controls}>
-        <View style={styles.backplay}>
+      <View style={styles.backplay}>
           <TouchableOpacity
             onPress={() => {
               if (carouselRef.current) carouselRef.current.prev();
             }}
-            style={styles.controlButton}>
+          >
             <Ionicons name="play-back" size={20} color="white" />
           </TouchableOpacity>
-        </View>
+      </View>
 
         <View style={styles.play}>
+        
           <TouchableOpacity
             onPress={() => setIsAutoPlay(!isAutoPlay)}
-            style={styles.controlButton}>
+          >
             <Ionicons
               name={isAutoPlay ? 'pause' : 'play'}
               size={20}
@@ -95,103 +96,109 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
             />
           </TouchableOpacity>
         </View>
+        
 
         <View style={styles.Nextplay}>
+        
           <TouchableOpacity
             onPress={() => {
               if (carouselRef.current) carouselRef.current.next();
             }}
-            style={styles.controlButton}>
+            >
             <Ionicons name="play-forward" size={20} color="white" />
           </TouchableOpacity>
+        
         </View>
-      </View>
-    </View>
+        </View>
+        </View>
   );
 };
 
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+
+  container:{
+    flex:1,
     borderColor: 'red',
     borderWidth: 5,
+  },
+  iconheart:{
+    bottom: moderateScale(200),
+    right: moderateScale(10), 
+    position: 'absolute',
+    flexDirection: 'column-reverse',
+    borderColor: 'yellow',
+    borderWidth: 5,
     
   },
-
-  controls: {
+  iconshare:{
+    bottom: moderateScale(150),
+    right: moderateScale(10), 
+    position: 'absolute',
+    flexDirection: 'column-reverse',
     borderColor: 'yellow',
     borderWidth: 5,
-    // flexDirection: 'row',
-    // justifyContent: 'center'
-   // flex: 0.4,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingTop: 150,
-    margin: 100,
-    alignItems: 'center',
+    
+
   },
-  controlButton: {
-    borderColor: 'blue',
-    borderWidth: 5,
-    //marginHorizontal: scale(10),
-  },
-  iconRow: {
-    zIndex: 1,
+  iconimage:{
+    bottom: moderateScale(100),
+    right: moderateScale(10), 
+    position: 'absolute',
+    flexDirection: 'column-reverse',
     borderColor: 'yellow',
     borderWidth: 5,
-    // backgroundColor: 'black',
-    // width: 40,
-    // height: 40,
-  //  position: 'absolute',
-    flexDirection: 'row',
-  marginTop: moderateScale(40),
-    marginLeft: scale(250),
-    justifyContent: 'flex-end',
-    // marginBottom: 10 // Adjust the margin to create space for the image icon
-  },
+    
 
-  // imageIconContainer: {
-  //   width:'10%',
-  //   height:'10%',
-  //   borderColor: 'green',
+  },
+  controls:{
+  
+  //  //  borderColor: 'green',
   //   borderWidth: 5,
-  //   position: 'absolute',
-  //   paddingTop: 300,
-  //   paddingLeft: 350,
-  //   paddingBottom: 20,
-  // },
-  imageIconButton: {
-    borderColor: 'blue',
-    borderWidth: 5,
+  //   bottom: moderateScale(170),
+  //  right: moderateScale(10), 
+    flexDirection: 'row',
+    alignSelf:'center',
+    justifyContent:'space-around',
     
   },
-  backplay: {
-    borderColor: 'yellow',
-    borderWidth: 5,
-    backgroundColor: '#87cefa',
-    width: 50,
-    height: 50,
-    borderRadius: 10,
-    textAlign: 'center',
-    justifyContent: 'center',
+  backplay:{
+  //  borderColor: 'blue',
+  //  borderWidth: 5,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    bottom: moderateScale(160),
+    right: moderateScale(10), 
+    width: '10%',
+    height: '110%',
     alignItems: 'center',
+    marginHorizontal: 5,
+  
   },
-  play: {
-    backgroundColor: '#87cefa',
-    width: 50,
-    height: 50,
-    borderRadius: 10,
-    justifyContent: 'center',
+  play:{
+  //  borderColor: 'blue',
+  //  borderWidth: 5,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: '10%',
+    height: '110%',
     alignItems: 'center',
+    bottom: moderateScale(160),
+    right: moderateScale(10), 
+    marginHorizontal: 5,
+
   },
-  Nextplay: {
-    backgroundColor: '#87cefa',
-    width: 50,
-    height: 50,
-    borderRadius: 10,
-    justifyContent: 'center',
+  Nextplay:{
+  //  borderColor: 'blue',
+  //  borderWidth: 5,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: '10%',
+    height: '110%',
     alignItems: 'center',
+    bottom: moderateScale(160),
+    right: moderateScale(10), 
+    marginHorizontal: 5,
   },
+
+
 });
 
 export default AnimatedCarousel;

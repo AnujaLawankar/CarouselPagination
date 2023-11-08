@@ -8,11 +8,15 @@ import {
   Easing,
 } from 'react-native';
 import React from 'react';
+import { moderateScale } from 'react-native-size-matters';
 
-const {width, height} = Dimensions.get('screen');
+const {width, height} = Dimensions.get('window');
 
 const SlideItem = ({item}: any) => {
-  const translateYImage = new Animated.Value(40);
+  const translateYImage = new Animated.Value(0);
+
+
+  
   //
   // Animated.timing(translateYImage, {
   //   toValue: 0,
@@ -22,14 +26,16 @@ const SlideItem = ({item}: any) => {
   // }).start();
 
   return (
-    // <View style={styles.container}>
+    
   <>
       <Animated.Image
         source={item.img}
-     //   resizeMode="cover"
+      
         style={[
           styles.image,
+          
           {
+            
             transform: [
               {
                 translateY: translateYImage,
@@ -37,60 +43,64 @@ const SlideItem = ({item}: any) => {
             ],
           },
         ]}
+      
       />
 
       <View style={styles.content}>
+      <View style={styles.textContainer}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.description}</Text>
         <Text style={styles.price}>{item.price}</Text>
-      </View>
-    {/* </View>  */}
-    </>
+      </View> 
+      </View> 
+      </>
     
   );
 };
 
 export default SlideItem;
 
+
 const styles = StyleSheet.create({
-//   container: {
-//  //   width: '100%',
-//   //  height: '100%', // Use the desired height for your container
-//    alignItems: 'center',
-//     //paddingBottom: 20, // Adjust the value as needed
-//  //   backgroundColor: 'black',
-// flex:1,
 
-//   },
+  image:{
 
-  image: {
-  // flex: 0.6,
-    width: '100%',
-    height: '100%',
-  resizeMode:'stretch',
+  width: '100%',
+  height: '100%',
+
+  
+  },
+  
+  content:{
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
 
   },
-  content: {
- //   flex: 0.4,
+  textContainer: {
+    marginBottom:moderateScale(50),
+  },
 
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: 'white',
-    alignItems: 'center',
-  },
-  description: {
-    fontSize: 15,
-    marginVertical: 12,
-    color: 'white',
-    alignItems: 'center',
-  },
-  price: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-    alignItems: 'center',
-  },
-});
+title:{
+
+  fontSize: 18,
+  fontWeight: 'bold',
+  color: 'white',
+
+
+},
+description:{
+  fontSize: 15,
+  color: 'white',
+
+
+},
+price:{
+  fontSize: 13,
+  fontWeight: 'bold',
+  color: 'white',
+
+},
+  });
