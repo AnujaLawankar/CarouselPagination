@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',  // Center horizontally
     alignItems: 'center',
-    bottom: moderateScale(100),
+    bottom: moderateScale(80),
     right: moderateScale(10), 
   
   },
   circle: {
-        width: moderateScale(12),
-        height: moderateScale(12),
+        width: moderateScale(11),
+        height: moderateScale(11),
         backgroundColor: 'grey',
         borderRadius: moderateScale(50),
         marginHorizontal: moderateScale(5),

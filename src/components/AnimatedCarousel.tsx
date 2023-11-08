@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     borderWidth: 5,
   },
   iconheart:{
-    bottom: moderateScale(200),
+    bottom: moderateScale(170),
     right: moderateScale(10), 
     position: 'absolute',
     flexDirection: 'column-reverse',
@@ -135,17 +135,17 @@ const styles = StyleSheet.create({
     
   },
   iconshare:{
-    bottom: moderateScale(150),
+    bottom: moderateScale(120),
     right: moderateScale(10), 
     position: 'absolute',
     flexDirection: 'column-reverse',
     borderColor: 'yellow',
     borderWidth: 5,
-   
+  
 
   },
   iconimage:{
-    bottom: moderateScale(100),
+    bottom: moderateScale(69),
     right: moderateScale(10), 
     position: 'absolute',
     flexDirection: 'column-reverse',
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   //  borderColor: 'blue',
   //  borderWidth: 5,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    bottom: moderateScale(160),
+    bottom: moderateScale(120),
     right: moderateScale(10), 
     width: '10%',
     height: '110%',
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     width: '10%',
     height: '110%',
     alignItems: 'center',
-    bottom: moderateScale(160),
+    bottom: moderateScale(120),
     right: moderateScale(10), 
     marginHorizontal: moderateScale(5),
 
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     width: '10%',
     height: '110%',
     alignItems: 'center',
-    bottom: moderateScale(160),
+    bottom: moderateScale(120),
     right: moderateScale(10), 
     marginHorizontal: moderateScale(5),
   },

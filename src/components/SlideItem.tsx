@@ -15,9 +15,9 @@ const {width, height} = Dimensions.get('window');
 const SlideItem = ({item}: any) => {
   const translateYImage = new Animated.Value(0);
 
-  //Use dimensions to calculate responsive styles
-  const imageWidth = width;
-  const imageHeight = height;
+  // //Use dimensions to calculate responsive styles
+  // const imageWidth = width;
+  // const imageHeight = height;
   
   //
   // Animated.timing(translateYImage, {
@@ -38,12 +38,12 @@ const SlideItem = ({item}: any) => {
           
           {
             
-            // transform: [
-            //   {
-            //     translateY: translateYImage,
-            //   },
-            // ],
-            width: imageWidth, height: imageHeight 
+            transform: [
+              {
+                translateY: translateYImage,
+              },
+            ],
+            // width: imageWidth, height: imageHeight 
           },
         ]}
       
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   image:{
 
   width: '100%',
-  height: '100%',
+  height: '85%',
 
   
   },
@@ -79,11 +79,12 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-
+   // backgroundColor: 'rgba(0, 0, 0, 0.5)',
+   backgroundColor:'black',
   },
   textContainer: {
-    marginBottom:moderateScale(50),
+    marginBottom:moderateScale(34),
+
   },
 
 title:{
