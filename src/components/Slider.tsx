@@ -36,7 +36,7 @@ const Slider = (props: SliderProps) => {
     )(event);
   };
 
-  const handleOnViewableItemsChanged = useRef(({viewableItems}) => {
+  const handleOnViewableItemsChanged = useRef(({viewableItems}:any) => {
     // console.log('viewableItems', viewableItems);
     setIndex(viewableItems[0].index);
   }).current;

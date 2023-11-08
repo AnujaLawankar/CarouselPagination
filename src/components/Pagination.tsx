@@ -60,11 +60,11 @@ const styles = StyleSheet.create({
   
   },
   circle: {
-        width: 15,
-        height: 15,
+        width: moderateScale(12),
+        height: moderateScale(12),
         backgroundColor: 'grey',
-        borderRadius: 50,
-        marginHorizontal: 5,
+        borderRadius: moderateScale(50),
+        marginHorizontal: moderateScale(5),
         
       },
 

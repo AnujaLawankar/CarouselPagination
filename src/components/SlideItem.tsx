@@ -15,7 +15,9 @@ const {width, height} = Dimensions.get('window');
 const SlideItem = ({item}: any) => {
   const translateYImage = new Animated.Value(0);
 
-
+  //Use dimensions to calculate responsive styles
+  const imageWidth = width;
+  const imageHeight = height;
   
   //
   // Animated.timing(translateYImage, {
@@ -36,11 +38,12 @@ const SlideItem = ({item}: any) => {
           
           {
             
-            transform: [
-              {
-                translateY: translateYImage,
-              },
-            ],
+            // transform: [
+            //   {
+            //     translateY: translateYImage,
+            //   },
+            // ],
+            width: imageWidth, height: imageHeight 
           },
         ]}
       
@@ -85,20 +88,20 @@ const styles = StyleSheet.create({
 
 title:{
 
-  fontSize: 18,
+  fontSize: moderateScale(18),
   fontWeight: 'bold',
   color: 'white',
 
 
 },
 description:{
-  fontSize: 15,
+  fontSize: moderateScale(15),
   color: 'white',
 
 
 },
 price:{
-  fontSize: 13,
+  fontSize: moderateScale(13),
   fontWeight: 'bold',
   color: 'white',
 

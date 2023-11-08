@@ -12,6 +12,8 @@ import {moderateScale, scale} from 'react-native-size-matters';
 interface AnimatedCarouseProps {
   slides: any;
 }
+const iconSize = moderateScale(30); 
+const iconColor = 'white';
 
 const AnimatedCarousel = (props: AnimatedCarouseProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,19 +59,19 @@ const AnimatedCarousel = (props: AnimatedCarouseProps) => {
 
       <View style={styles.iconheart}>
         <TouchableOpacity onPress={() => console.log('Hit Like')}>
-          <Ionicons name="heart-outline" size={30} color="white" />
+          <Ionicons name="heart-outline" size={iconSize} color={iconColor} />
         </TouchableOpacity>
 </View>
 <View style={styles.iconshare}>
         <TouchableOpacity onPress={() => console.log('Hit Share')}>
-          <Ionicons name="share-outline" size={30} color="white" />
+          <Ionicons name="share-outline" size={iconSize} color={iconColor} />
         </TouchableOpacity>
       </View>
 
       <View style={styles.iconimage}>
         <TouchableOpacity
           onPress={() => console.log('Photos Hits')}>
-          <Ionicons name="images-outline" size={30} color="white" />
+          <Ionicons name="images-outline" size={iconSize} color={iconColor} />
         </TouchableOpacity>
       </View>
 
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column-reverse',
     borderColor: 'yellow',
     borderWidth: 5,
+ 
     
   },
   iconshare:{
@@ -138,7 +141,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column-reverse',
     borderColor: 'yellow',
     borderWidth: 5,
-    
+   
 
   },
   iconimage:{
@@ -148,15 +151,16 @@ const styles = StyleSheet.create({
     flexDirection: 'column-reverse',
     borderColor: 'yellow',
     borderWidth: 5,
+  
+  
     
 
   },
   controls:{
   
-  //  //  borderColor: 'green',
-  //   borderWidth: 5,
-  //   bottom: moderateScale(170),
-  //  right: moderateScale(10), 
+  //  borderColor: 'green',
+   // borderWidth: 5,
+  
     flexDirection: 'row',
     alignSelf:'center',
     justifyContent:'space-around',
@@ -171,7 +175,7 @@ const styles = StyleSheet.create({
     width: '10%',
     height: '110%',
     alignItems: 'center',
-    marginHorizontal: 5,
+    marginHorizontal: moderateScale(5),
   
   },
   play:{
@@ -183,7 +187,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     bottom: moderateScale(160),
     right: moderateScale(10), 
-    marginHorizontal: 5,
+    marginHorizontal: moderateScale(5),
 
   },
   Nextplay:{
@@ -195,7 +199,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     bottom: moderateScale(160),
     right: moderateScale(10), 
-    marginHorizontal: 5,
+    marginHorizontal: moderateScale(5),
   },
 
 
