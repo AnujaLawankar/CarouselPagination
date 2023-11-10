@@ -10,9 +10,9 @@ const App = () => {
   //-- VS: if you want to use View here, which you might, you need to have flex:1 here
   return (
     <>
-    {/* // <View style={{flex: 1}}> */}
+
       <CarouselType slides={data} />
-    {/* // </View> */}
+
     </>
   );
 };

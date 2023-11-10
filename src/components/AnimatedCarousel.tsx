@@ -126,14 +126,26 @@ const styles = StyleSheet.create({
   },
   iconheart:{
     bottom: moderateScale(170),
-    right: moderateScale(10), 
+    right: moderateScale(10),
     position: 'absolute',
     flexDirection: 'column-reverse',
     borderColor: 'yellow',
     borderWidth: 5,
- 
-    
+
+
   },
+//
+// iconheart: {
+//
+//   flexDirection: 'column', // or 'column' based on your desired layout
+//   justifyContent: 'flex-start', // align to the right
+//   alignItems: 'flex-start', // align to the bottom
+// //  borderColor: 'yellow',
+//  // borderWidth: 5,
+//
+// },
+
+
   iconshare:{
     bottom: moderateScale(120),
     right: moderateScale(10), 
@@ -160,7 +172,7 @@ const styles = StyleSheet.create({
   
   //  borderColor: 'green',
    // borderWidth: 5,
-  
+
     flexDirection: 'row',
     alignSelf:'center',
     justifyContent:'space-around',

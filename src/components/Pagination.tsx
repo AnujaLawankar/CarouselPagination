@@ -50,13 +50,14 @@ export default Pagination;
 const styles = StyleSheet.create({
 
   dotView:{
+    flex:0.2,
     borderColor: 'green',
     borderWidth: 2,
     flexDirection: 'row',
     justifyContent: 'center',  // Center horizontally
     alignItems: 'center',
-    bottom: moderateScale(80),
-    right: moderateScale(10), 
+    bottom: moderateScale(130),
+  //  right: moderateScale(10),
   
   },
   circle: {
