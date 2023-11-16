@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
   image: {
     flex: 0.9,
     width: '100%',
-    //height: '90%',
   },
   iconheart: {
     bottom: moderateScale(270),
@@ -102,11 +101,6 @@ const styles = StyleSheet.create({
 
   content: {
     flex: 0.2,
-    //     position: 'absolute',
-    //     bottom: 0,
-    //     left: 0,
-    //     right: 0,
-    // backgroundColor: 'rgba(0, 0, 0, 0.5)',
     backgroundColor: 'black',
   },
   textContainer: {
